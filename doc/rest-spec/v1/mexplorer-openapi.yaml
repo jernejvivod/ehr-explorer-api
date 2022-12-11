@@ -150,8 +150,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: integer
-                  format: int64
+                  type: string
 components:
   schemas:
     TableStats:
@@ -307,7 +306,6 @@ components:
         - clinical_text_entity_name
         - text_property_name
         - clinical_text_enity_id_property_name
-        - date_time_properties_names
         - root_entities_spec
       properties:
         clinical_text_entity_name:

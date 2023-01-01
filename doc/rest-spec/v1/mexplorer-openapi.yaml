@@ -199,15 +199,17 @@ components:
     CompositeColumnsSpecEntry:
       type: object
       properties:
-        table1:
-          type: string
-          example: AdmissionsEntity
+        foreign_key_path1:
+          type: array
+          items:
+            type: string
         property1:
           type: string
           example: admitTime
-        table2:
-          type: string
-          example: PatientsEntity
+        foreign_key_path2:
+          type: array
+          items:
+            type: string
         property2:
           type: string
           example: dob
@@ -303,14 +305,16 @@ components:
     ClinicalTextConfig:
       type: object
       required:
-        - clinical_text_entity_name
+        - foreign_key_path
         - text_property_name
         - clinical_text_enity_id_property_name
         - root_entities_spec
       properties:
-        clinical_text_entity_name:
-          type: string
-          example: NoteEventsEntity
+        foreign_key_path:
+          type: array
+          items:
+            type: string
+            example: [ 'AdmissionsEntity', 'NoteEventsEntity' ]
         text_property_name:
           type: string
           example: text
@@ -384,8 +388,11 @@ components:
     IdRetrievalFilterSpec:
       type: object
       properties:
-        entity_name:
-          type: string
+        foreign_key_path:
+          type: array
+          items:
+            type: string
+            example: [ 'AdmissionsEntity', 'NoteEventsEntity' ]
         property_name:
           type: string
         comparator:

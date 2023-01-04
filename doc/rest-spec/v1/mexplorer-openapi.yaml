@@ -178,6 +178,10 @@ components:
           example: 3
     WordificationConfig:
       type: object
+      required:
+        - rootEntitiesSpec
+        - propertySpec
+        - concatenationSpec
       properties:
         rootEntitiesSpec:
           $ref: '#/components/schemas/RootEntitiesSpec'
@@ -191,6 +195,8 @@ components:
           $ref: '#/components/schemas/ConcatenationSpec'
     CompositeColumnsSpec:
       type: object
+      required:
+        - entries
       properties:
         entries:
           type: array
@@ -198,6 +204,13 @@ components:
             $ref: '#/components/schemas/CompositeColumnsSpecEntry'
     CompositeColumnsSpecEntry:
       type: object
+      required:
+        - foreign_key_path1
+        - property1
+        - foreign_key_path2
+        - property2
+        - compositeName
+        - combiner
       properties:
         foreign_key_path1:
           type: array
@@ -240,6 +253,8 @@ components:
             format: int64
     ConcatenationSpec:
       type: object
+      required:
+        - concatenationScheme
       properties:
         concatenationScheme:
           type: string
@@ -249,6 +264,8 @@ components:
             - TWO
     ValueTransformationSpec:
       type: object
+      required:
+        - entries
       properties:
         entries:
           type: array
@@ -256,6 +273,10 @@ components:
             $ref: '#/components/schemas/ValueTransformationSpecEntry'
     ValueTransformationSpecEntry:
       type: object
+      required:
+        - entity
+        - property
+        - transform
       properties:
         entity:
           type: string
@@ -266,6 +287,8 @@ components:
           $ref: '#/components/schemas/Transform'
     Transform:
       type: object
+      required:
+        - kind
       properties:
         kind:
           type: string
@@ -286,6 +309,8 @@ components:
             - TWENTY_YEARS
     PropertySpec:
       type: object
+      required:
+        - entries
       properties:
         entries:
           type: array
@@ -293,6 +318,9 @@ components:
             $ref: '#/components/schemas/PropertySpecEntry'
     PropertySpecEntry:
       type: object
+      required:
+        - entity
+        - properties
       properties:
         entity:
           type: string
@@ -356,6 +384,8 @@ components:
           type: string
     TargetExtractionSpec:
       type: object
+      required:
+        - target_type
       properties:
         target_type:
           type: string
@@ -376,6 +406,9 @@ components:
           type: integer
     IdRetrievalSpec:
       type: object
+      required:
+        - entity_name
+        - id_property
       properties:
         entity_name:
           type: string
@@ -387,6 +420,11 @@ components:
             $ref: '#/components/schemas/IdRetrievalFilterSpec'
     IdRetrievalFilterSpec:
       type: object
+      required:
+        - foreign_key_path
+        - property_name
+        - comparator
+        - property_val
       properties:
         foreign_key_path:
           type: array

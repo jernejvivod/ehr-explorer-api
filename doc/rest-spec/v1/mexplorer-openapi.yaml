@@ -238,7 +238,6 @@ components:
       required:
         - root_entity
         - id_property
-        - ids
       properties:
         root_entity:
           type: string

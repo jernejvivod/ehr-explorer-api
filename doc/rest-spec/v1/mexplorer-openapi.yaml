@@ -159,6 +159,9 @@ components:
         tableName:
           type: string
           example: admissions
+        numEntries:
+          type: integer
+          format: int64
         columnStats:
           type: array
           items:
@@ -169,12 +172,13 @@ components:
         columnName:
           type: string
           example: admission_type
-        portionNull:
-          type: number
-          format: double
-          example: 0.12
+        numNull:
+          type: integer
+          format: int64
+          example: 10128
         numUnique:
           type: integer
+          format: int64
           example: 3
     WordificationConfig:
       type: object

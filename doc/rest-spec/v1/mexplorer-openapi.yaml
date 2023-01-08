@@ -31,7 +31,7 @@ paths:
       description: Get all statistics for all columns in the dataset
       responses:
         '200':
-          description: successfuly retrieved statistics for all columns
+          description: successfully retrieved statistics for all columns
           content:
             application/json:
               schema:

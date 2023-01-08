@@ -37,32 +37,32 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/TableStats'
-  /stats/{tableName}:
+                  $ref: '#/components/schemas/EntityStats'
+  /stats/{entityName}:
     get:
       tags:
         - stats
-      summary: get statistics for specified table
-      description: get all statistics for all tables in the specified table
-      operationId: tableStats
+      summary: get statistics for specified entity
+      description: get all statistics for all properies in the specified entity
+      operationId: entityStats
       parameters:
-        - name: tableName
+        - name: entityName
           in: path
-          description: name of the table for which to compute the column statistics
+          description: name of the entity for which to compute the column statistics
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: successfully retrieved statistics for specified table
+          description: successfully retrieved statistics for specified entity
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TableStats'
+                $ref: '#/components/schemas/EntityStats'
         '400':
-          description: Invalid table name
+          description: Invalid entity name
         '404':
-          description: Table with specified name not found
+          description: Entity with specified name not found
   /propositionalization/wordification:
     post:
       tags:
@@ -153,23 +153,23 @@ paths:
                   type: string
 components:
   schemas:
-    TableStats:
+    EntityStats:
       type: object
       properties:
-        tableName:
+        entityName:
           type: string
           example: admissions
         numEntries:
           type: integer
           format: int64
-        columnStats:
+        propertyStats:
           type: array
           items:
-            $ref: '#/components/schemas/ColumnStats'
-    ColumnStats:
+            $ref: '#/components/schemas/PropertyStats'
+    PropertyStats:
       type: object
       properties:
-        columnName:
+        propertyName:
           type: string
           example: admission_type
         numNull:

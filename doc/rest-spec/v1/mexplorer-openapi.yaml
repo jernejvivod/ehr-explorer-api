@@ -361,7 +361,7 @@ components:
           example: 'outTime'
         root_entities_spec:
           $ref: '#/components/schemas/RootEntitiesSpec'
-        data_range_spec:
+        clinical_text_extraction_duration_spec:
           $ref: '#/components/schemas/ClinicalTextExtractionDurationSpec'
     ClinicalTextExtractionDurationSpec:
       type: object

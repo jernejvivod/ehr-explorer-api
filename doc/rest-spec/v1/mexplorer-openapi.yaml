@@ -158,7 +158,7 @@ components:
       properties:
         entityName:
           type: string
-          example: admissions
+          example: 'admissions'
         numEntries:
           type: integer
           format: int64
@@ -171,7 +171,7 @@ components:
       properties:
         propertyName:
           type: string
-          example: admission_type
+          example: 'admission_type'
         numNull:
           type: integer
           format: int64
@@ -222,17 +222,17 @@ components:
             type: string
         property1:
           type: string
-          example: admitTime
+          example: 'admitTime'
         foreign_key_path2:
           type: array
           items:
             type: string
         property2:
           type: string
-          example: dob
+          example: 'dob'
         compositeName:
           type: string
-          example: ageDecades
+          example: 'ageDecades'
         combiner:
           type: string
           enum:
@@ -245,10 +245,10 @@ components:
       properties:
         root_entity:
           type: string
-          example: AdmissionsEntity
+          example: 'AdmissionsEntity'
         id_property:
           type: string
-          example: hadmId
+          example: 'hadmId'
         ids:
           type: array
           items:
@@ -283,7 +283,7 @@ components:
       properties:
         entity:
           type: string
-          example: AdmissionsEntity
+          example: 'AdmissionsEntity'
         property:
           type: string
         transform:
@@ -327,12 +327,12 @@ components:
       properties:
         entity:
           type: string
-          example: AdmissionsEntity
+          example: 'AdmissionsEntity'
         properties:
           type: array
           items:
             type: string
-            example: "insurance"
+            example: 'insurance'
     ClinicalTextConfig:
       type: object
       required:
@@ -348,19 +348,22 @@ components:
             example: [ 'AdmissionsEntity', 'NoteEventsEntity' ]
         text_property_name:
           type: string
-          example: text
+          example: 'text'
         clinical_text_entity_id_property_name:
           type: string
-          example: rowId
-        date_time_properties_names:
+          example: 'rowId'
+        clinical_text_date_time_properties_names:
           type: array
           items:
             type: string
+        root_entity_datetime_property_for_cutoff:
+          type: string
+          example: 'outTime'
         root_entities_spec:
           $ref: '#/components/schemas/RootEntitiesSpec'
         data_range_spec:
-          $ref: '#/components/schemas/DataRangeSpec'
-    DataRangeSpec:
+          $ref: '#/components/schemas/ClinicalTextExtractionDurationSpec'
+    ClinicalTextExtractionDurationSpec:
       type: object
       required:
         - first_minutes
@@ -394,6 +397,8 @@ components:
           type: string
           enum:
             - PATIENT_DIED_DURING_ADMISSION
+            - HOSPITAL_READMISSION_HAPPENED
+            - ICU_STAY_READMISSION_HAPPENED
         ids:
           type: array
           items:
@@ -407,6 +412,9 @@ components:
           format: int64
         target_value:
           type: integer
+        date_time_limit:
+          type: string
+          format: 'date-time'
     IdRetrievalSpec:
       type: object
       required:

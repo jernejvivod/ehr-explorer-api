@@ -151,6 +151,28 @@ paths:
                 type: array
                 items:
                   type: string
+  /ids/by-fk-path:
+    post:
+      tags:
+        - ids
+      summary: get id values
+      description: get id values for entities on end of foreign key path
+      operationId: ids-fk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForeignKeyPathIdRetrievalSpec'
+      responses:
+        '200':
+          description: successfully retrieved ids
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
 components:
   schemas:
     EntityStats:
@@ -425,6 +447,34 @@ components:
           type: string
         id_property:
           type: string
+        filter_specs:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdRetrievalFilterSpec'
+    ForeignKeyPathIdRetrievalSpec:
+      type: object
+      required:
+        - foreign_key_path
+        - root_entity_id_property
+        - end_entity_id_property
+        - root_entity_ids
+      properties:
+        foreign_key_path:
+          type: array
+          items:
+            type: string
+            example: [ 'PatientsEntity', 'IcuStaysEntity' ]
+        root_entity_id_property:
+          type: string
+          example: 'subjectId'
+        end_entity_id_property:
+          type: string
+          example: 'icuStayId'
+        root_entity_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
         filter_specs:
           type: array
           items:

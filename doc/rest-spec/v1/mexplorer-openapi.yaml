@@ -426,6 +426,15 @@ components:
           items:
             type: integer
             format: int64
+        age_lim:
+          type: integer
+          format: int32
+        max_days_interval_positive:
+          type: integer
+          format: int32
+        max_days_death_after_last_positive:
+          type: integer
+          format: int32
     ExtractedTarget:
       type: object
       properties:

@@ -432,9 +432,11 @@ components:
         max_days_interval_positive:
           type: integer
           format: int32
+          default: 30
         max_days_death_after_last_positive:
           type: integer
           format: int32
+          default: 30
     ExtractedTarget:
       type: object
       properties:

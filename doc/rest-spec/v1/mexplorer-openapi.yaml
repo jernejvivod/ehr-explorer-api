@@ -341,6 +341,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertySpecEntry'
+        duration_lim:
+          type: string
+          format: 'date-time'
     PropertySpecEntry:
       type: object
       required:
@@ -355,6 +358,9 @@ components:
           items:
             type: string
             example: 'insurance'
+        propertyForLimit:
+          type: string
+          example: 'admitTime'
     ClinicalTextConfig:
       type: object
       required:

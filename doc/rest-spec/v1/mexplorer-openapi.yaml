@@ -341,7 +341,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertySpecEntry'
-        duration_lim:
+        root_entity_and_lime_limit:
+          type: array
+          items:
+            $ref: '#/components/schemas/RootEntityAndTimeLimit'
+    RootEntityAndTimeLimit:
+      type: object
+      required:
+        - root_entity_id
+        - time_lim
+      properties:
+        root_entity_id:
+          type: integer
+          format: int64
+        time_lim:
           type: string
           format: 'date-time'
     PropertySpecEntry:
@@ -401,9 +414,12 @@ components:
     WordificationResult:
       type: object
       properties:
-        rootEntityId:
+        root_entity_id:
           type: integer
           format: int64
+        time_lim:
+          type: string
+          format: 'date-time'
         words:
           type: array
           items:
@@ -447,6 +463,9 @@ components:
       type: object
       properties:
         root_entity_id:
+          type: integer
+          format: int64
+        target_entity_id:
           type: integer
           format: int64
         target_value:

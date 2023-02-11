@@ -231,21 +231,21 @@ components:
     CompositeColumnsSpecEntry:
       type: object
       required:
-        - foreign_key_path1
+        - foreignKeyPath1
         - property1
-        - foreign_key_path2
+        - foreignKeyPath2
         - property2
         - compositeName
         - combiner
       properties:
-        foreign_key_path1:
+        foreignKeyPath1:
           type: array
           items:
             type: string
         property1:
           type: string
           example: 'admitTime'
-        foreign_key_path2:
+        foreignKeyPath2:
           type: array
           items:
             type: string
@@ -262,13 +262,13 @@ components:
     RootEntitiesSpec:
       type: object
       required:
-        - root_entity
-        - id_property
+        - rootEntity
+        - idProperty
       properties:
-        root_entity:
+        rootEntity:
           type: string
           example: 'AdmissionsEntity'
-        id_property:
+        idProperty:
           type: string
           example: 'hadmId'
         ids:
@@ -341,20 +341,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertySpecEntry'
-        root_entity_and_lime_limit:
+        rootEntityAndLimeLimit:
           type: array
           items:
             $ref: '#/components/schemas/RootEntityAndTimeLimit'
     RootEntityAndTimeLimit:
       type: object
       required:
-        - root_entity_id
-        - time_lim
+        - rootEntityId
+        - timeLim
       properties:
-        root_entity_id:
+        rootEntityId:
           type: integer
           format: int64
-        time_lim:
+        timeLim:
           type: string
           format: 'date-time'
     PropertySpecEntry:
@@ -377,47 +377,47 @@ components:
     ClinicalTextConfig:
       type: object
       required:
-        - foreign_key_path
-        - text_property_name
-        - clinical_text_enity_id_property_name
-        - root_entities_spec
+        - foreignKeyPath
+        - textPropertyName
+        - clinicalTextEnityIdPropertyName
+        - rootEntitiesSpec
       properties:
-        foreign_key_path:
+        foreignKeyPath:
           type: array
           items:
             type: string
             example: [ 'AdmissionsEntity', 'NoteEventsEntity' ]
-        text_property_name:
+        textPropertyName:
           type: string
           example: 'text'
-        clinical_text_entity_id_property_name:
+        clinicalTextEntityIdPropertyName:
           type: string
           example: 'rowId'
-        clinical_text_date_time_properties_names:
+        clinicalTextDateTimePropertiesNames:
           type: array
           items:
             type: string
-        root_entity_datetime_property_for_cutoff:
+        rootEntityDatetimePropertyForCutoff:
           type: string
           example: 'outTime'
-        root_entities_spec:
+        rootEntitiesSpec:
           $ref: '#/components/schemas/RootEntitiesSpec'
-        clinical_text_extraction_duration_spec:
+        clinicalTextExtractionDurationSpec:
           $ref: '#/components/schemas/ClinicalTextExtractionDurationSpec'
     ClinicalTextExtractionDurationSpec:
       type: object
       required:
-        - first_minutes
+        - firstMinutes
       properties:
-        first_minutes:
+        firstMinutes:
           type: integer
     WordificationResult:
       type: object
       properties:
-        root_entity_id:
+        rootEntityId:
           type: integer
           format: int64
-        time_lim:
+        timeLim:
           type: string
           format: 'date-time'
         words:
@@ -427,7 +427,7 @@ components:
     ClinicalTextResult:
       type: object
       properties:
-        root_entity_id:
+        rootEntityId:
           type: integer
           format: int64
         text:
@@ -435,9 +435,9 @@ components:
     TargetExtractionSpec:
       type: object
       required:
-        - target_type
+        - targetType
       properties:
-        target_type:
+        targetType:
           type: string
           enum:
             - PATIENT_DIED_DURING_ADMISSION
@@ -448,87 +448,87 @@ components:
           items:
             type: integer
             format: int64
-        age_lim:
+        ageLim:
           type: integer
           format: int32
-        max_days_interval_positive:
+        maxDaysIntervalPositive:
           type: integer
           format: int32
           default: 30
-        max_days_death_after_last_positive:
+        maxDaysDeathAfterLastPositive:
           type: integer
           format: int32
           default: 30
     ExtractedTarget:
       type: object
       properties:
-        root_entity_id:
+        rootEntityId:
           type: integer
           format: int64
-        target_entity_id:
+        targetEntityId:
           type: integer
           format: int64
-        target_value:
+        targetValue:
           type: integer
-        date_time_limit:
+        dateTimeLimit:
           type: string
           format: 'date-time'
     IdRetrievalSpec:
       type: object
       required:
-        - entity_name
-        - id_property
+        - entityName
+        - idProperty
       properties:
-        entity_name:
+        entityName:
           type: string
-        id_property:
+        idProperty:
           type: string
-        filter_specs:
+        filterSpecs:
           type: array
           items:
             $ref: '#/components/schemas/IdRetrievalFilterSpec'
     ForeignKeyPathIdRetrievalSpec:
       type: object
       required:
-        - foreign_key_path
-        - root_entity_id_property
-        - end_entity_id_property
-        - root_entity_ids
+        - foreignKeyPath
+        - rootEntityIdProperty
+        - endEntityIdProperty
+        - rootEntityIds
       properties:
-        foreign_key_path:
+        foreignKeyPath:
           type: array
           items:
             type: string
             example: [ 'PatientsEntity', 'IcuStaysEntity' ]
-        root_entity_id_property:
+        rootEntityIdProperty:
           type: string
           example: 'subjectId'
-        end_entity_id_property:
+        endEntityIdProperty:
           type: string
           example: 'icuStayId'
-        root_entity_ids:
+        rootEntityIds:
           type: array
           items:
             type: integer
             format: int64
-        filter_specs:
+        filterSpecs:
           type: array
           items:
             $ref: '#/components/schemas/IdRetrievalFilterSpec'
     IdRetrievalFilterSpec:
       type: object
       required:
-        - foreign_key_path
-        - property_name
+        - foreignKeyPath
+        - propertyName
         - comparator
-        - property_val
+        - propertyVal
       properties:
-        foreign_key_path:
+        foreignKeyPath:
           type: array
           items:
             type: string
             example: [ 'AdmissionsEntity', 'NoteEventsEntity' ]
-        property_name:
+        propertyName:
           type: string
         comparator:
           type: string
@@ -536,5 +536,5 @@ components:
             - LESS
             - EQUAL
             - MORE
-        property_val:
+        propertyVal:
           type: object

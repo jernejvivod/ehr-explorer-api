@@ -393,7 +393,7 @@ components:
         propertyOnOtherEntity:
           type: string
           example: 'dob'
-        foreignkeyPath:
+        foreignKeyPath:
           type: array
           items:
             type: string

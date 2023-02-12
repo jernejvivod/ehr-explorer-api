@@ -374,6 +374,37 @@ components:
         propertyForLimit:
           type: string
           example: 'admitTime'
+        compositePropertySpecEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompositePropertySpecEntry'
+    CompositePropertySpecEntry:
+      type: object
+      required:
+        - propertyOnThisEntity
+        - propertyOnOtherEntity
+        - foreignKeyPath
+        - compositePropertyName
+        - combiner
+      properties:
+        propertyOnThisEntity:
+          type: string
+          example: 'inTime'
+        propertyOnOtherEntity:
+          type: string
+          example: 'dob'
+        foreignkeyPath:
+          type: array
+          items:
+            type: string
+            example: [ 'IcuStaysEntity', 'PatientsEntity' ]
+        compositePropertyName:
+          type: string
+          example: 'ageAtAdmission'
+        combiner:
+          type: string
+          enum:
+            - DATE_DIFF
     ClinicalTextConfig:
       type: object
       required:

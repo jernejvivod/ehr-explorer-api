@@ -4,9 +4,9 @@ servers:
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/jv723/reference/1.0.0
 info:
-  description: API for the MIMIC-III Explorer Processor microservice
+  description: API for the EHR Explorer Processor microservice
   version: "1.0.0"
-  title: MIMIC-III Explorer Processor API
+  title: EHR Explorer Processor API
   contact:
     email: vivod.jernej@gmail.com
   license:

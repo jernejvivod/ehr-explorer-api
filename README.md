@@ -1,1 +1,1 @@
-# mimic-iii-explorer-api
+# ehr-explorer-api

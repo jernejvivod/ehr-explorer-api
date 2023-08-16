@@ -429,12 +429,18 @@ components:
           items:
             type: string
         rootEntityDatetimePropertyForCutoff:
-          type: string
-          example: 'outTime'
+          $ref: '#/components/schemas/RootEntityDatetimePropertyForCutoffSpec'
         rootEntitiesSpec:
           $ref: '#/components/schemas/RootEntitiesSpec'
         clinicalTextExtractionDurationSpec:
           $ref: '#/components/schemas/ClinicalTextExtractionDurationSpec'
+    RootEntityDatetimePropertyForCutoffSpec:
+      type: object
+      properties:
+        propertyForUpperLimit:
+          type: string
+        propertyForLowerLimit:
+          type: string
     ClinicalTextExtractionDurationSpec:
       type: object
       required:

@@ -428,7 +428,7 @@ components:
           type: array
           items:
             type: string
-        rootEntityDatetimePropertyForCutoff:
+        rootEntityDatetimePropertyForCutoffSpec:
           $ref: '#/components/schemas/RootEntityDatetimePropertyForCutoffSpec'
         rootEntitiesSpec:
           $ref: '#/components/schemas/RootEntitiesSpec'

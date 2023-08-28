@@ -485,8 +485,6 @@ components:
           items:
             type: integer
             format: int64
-        dateTimeLimitProperty:
-          type: string
         ageLim:
           type: integer
           format: int32

@@ -327,6 +327,7 @@ components:
         dateDiffRoundType:
           type: string
           enum:
+            - DAYS
             - YEAR
             - FIVE_YEARS
             - TEN_YEARS
